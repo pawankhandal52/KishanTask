@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Pawan Kumar Sharma on 11/9/19 8:34 PM
+  ~  * Copyright (c) 2019 . All rights reserved.
+  ~  * Last modified 11/9/19 8:34 PM
+  ~  */
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="contactClick"
+            type="com.kishan.contactstask.utils.RecyclerViewClickListener" />
+
+        <variable
+            name="contactvm"
+            type="com.kishan.contactstask.ui.contacts.model.ContactViewModel" />
+       <variable
+            name="model"
+            type="com.kishan.contactstask.ui.contacts.model.Contact" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->contactClick.onRecyclerViewItemClick(model)}"
+
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:id="@+id/tv_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textSize="@dimen/font_16"
+            app:mutableText="@{contactvm.firstName}"
+            tools:text="@string/first_pname" />
+
+        <TextView
+            android:id="@+id/tv_last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            app:mutableText="@{contactvm.lastName}"
+
+            android:textSize="@dimen/font_14"
+            tools:text="@string/last_name" />
+
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mutableText="@{contactvm.phoneNumber}"
+            android:fontFamily="serif"
+            android:textSize="@dimen/font_14"
+            tools:text="@string/phone_number" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
