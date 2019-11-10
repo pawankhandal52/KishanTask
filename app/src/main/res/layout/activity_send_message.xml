@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ /**
-  ~  * Created by Pawan Kumar Sharma on 11/9/19 9:41 PM
+  ~  * Created by Pawan Kumar Sharma on 11/10/19 11:46 AM
   ~  * Copyright (c) 2019 . All rights reserved.
-  ~  * Last modified 11/9/19 9:41 PM
+  ~  * Last modified 11/10/19 11:46 AM
   ~  */
   -->
 
@@ -13,18 +13,14 @@
 
     <data>
         <variable
-            name="model"
-            type="com.kishan.contactstask.ui.contacts.model.Contact" />
-        <variable
             name="viewmodel"
-            type="com.kishan.contactstask.ui.contactDetails.ContactDetailsViewModel" />
+            type="com.kishan.contactstask.ui.sendmessages.SendMessageViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.contactDetails.ContactDetailsActivity">
-
+        tools:context=".ui.sendmessages.SendMessageActivity">
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
@@ -56,50 +52,6 @@
             app:layout_constraintVertical_bias="0.0">
 
 
-            <TextView
-                android:id="@+id/tv_first_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ellipsize="end"
-                android:maxLength="20"
-                android:maxLines="1"
-                android:text="@{model.firstName.toString()}"
-                app:layout_constraintEnd_toStartOf="@+id/tv_last_name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/first_pname" />
-
-            <TextView
-                android:id="@+id/tv_last_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:ellipsize="end"
-                android:maxLength="20"
-                android:maxLines="1"
-                android:text="@{model.lastName}"
-
-                app:layout_constraintBottom_toBottomOf="@+id/tv_first_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_first_name"
-                app:layout_constraintTop_toTopOf="@+id/tv_first_name"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="@string/last_name" />
-
-            <TextView
-                android:id="@+id/tv_phone_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                tools:text="@string/phone_number"
-                android:text="@{model.phoneNumber}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_first_name" />
-
             <Button
                 android:id="@+id/button"
                 style="@style/TextAppearance.AppCompat.Widget.Button"
@@ -110,13 +62,28 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/round_corner_gradient"
                 android:elevation="@dimen/dp8"
-                android:onClick="@{()->viewmodel.sendMessage(model)}"
-                android:text="@string/send_message"
-                android:textColor="@color/white"
+                android:onClick="@{()->viewmodel.send()}"
+                android:text="@string/send"
                 android:textAllCaps="false"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                tools:text="Hi User Your OTP is:123456"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

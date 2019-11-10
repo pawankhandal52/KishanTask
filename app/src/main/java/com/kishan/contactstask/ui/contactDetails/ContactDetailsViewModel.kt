@@ -8,7 +8,9 @@
 
 package com.kishan.contactstask.ui.contactDetails
 
+import androidx.lifecycle.MutableLiveData
 import com.kishan.contactstask.ui.base.BaseViewModel
+import com.kishan.contactstask.ui.contacts.model.Contact
 
 /**
  * Created by Pawan Kumar Sharma on 09-Nov-19.
@@ -18,4 +20,11 @@ import com.kishan.contactstask.ui.base.BaseViewModel
  * +917737947610
  */
 class ContactDetailsViewModel:BaseViewModel() {
+
+    //val sendMessageClicked = MutableLiveData<Boolean>()
+    val contact = MutableLiveData<Contact>()
+
+    fun sendMessage(contact:Contact){
+        this.contact.value = contact
+    }
 }

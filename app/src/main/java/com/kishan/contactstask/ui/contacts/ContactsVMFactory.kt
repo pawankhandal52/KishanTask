@@ -6,13 +6,11 @@
  *
  */
 
-package com.fleeca.fleecasdk.ui.invoicedetails
+package com.kishan.contactstask.ui.contacts
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import com.kishan.contactstask.ui.contacts.ContactListViewModel
 
 /**
  * Created by Pawan Kumar Sharma on 05-Nov-19.

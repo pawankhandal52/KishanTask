@@ -58,6 +58,7 @@
             app:mutableText="@{contactvm.phoneNumber}"
             android:fontFamily="serif"
             android:textSize="@dimen/font_14"
+            android:visibility="gone"
             tools:text="@string/phone_number" />
         <View
             android:layout_width="match_parent"

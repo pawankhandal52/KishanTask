@@ -11,13 +11,8 @@ package com.kishan.contactstask.ui.contacts
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fleeca.fleecasdk.ui.invoicedetails.ContactsVMFactory
 
 import com.kishan.contactstask.R
 import com.kishan.contactstask.databinding.ContactListFragmentBinding
