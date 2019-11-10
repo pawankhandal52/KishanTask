@@ -36,6 +36,11 @@ class ContactListAdapter( var itemClick:RecyclerViewClickListener<Contact>): Rec
         return if(::contactList.isInitialized) contactList.size else 0
     }
 
+    /**
+     * to update the contact list
+     *
+     * @param contactList
+     */
     fun updateContactList(contactList:List<Contact>){
         this.contactList = contactList
         notifyDataSetChanged()

@@ -22,7 +22,6 @@ import com.kishan.contactstask.utils.ProgressDialog
 abstract class BaseFragment<T:ViewDataBinding> : Fragment() {
     open lateinit var binding: T
     lateinit var progressDialog: ProgressDialog
-    //open lateinit var viewModel: V
     private var errorSnackbar: Snackbar? = null
     @LayoutRes
     abstract fun layoutRes(): Int
@@ -38,13 +37,22 @@ abstract class BaseFragment<T:ViewDataBinding> : Fragment() {
         return binding.root
     }
 
-
+    /**
+     * Show Error on Activity using snack bar
+     *
+     * @param errorMessage
+     */
     fun showError( errorMessage:String){
         errorSnackbar = Snackbar.make(binding.root, errorMessage, Snackbar.LENGTH_INDEFINITE)
         errorSnackbar?.show()
     }
 
+    /**
+     * Hide error
+     *
+     */
     fun hideError(){
         errorSnackbar?.dismiss()
     }
+
 }

@@ -24,6 +24,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        packagingOptions {
+            exclude 'META-INF/DEPENDENCIES'
+        }
 
     }
     buildTypes {
@@ -31,8 +34,16 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
+        debug{
+            buildConfigField "String", "API_KEY", API_KEY
+            buildConfigField "String", "API_SECRECT", API_SECRECT
+        }
 
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     dataBinding {
         enabled = true
     }
@@ -43,7 +54,7 @@ android {
 dependencies {
     def lifecycle_version = "2.1.0"
     def retrofit_version = "2.4.0"
-    def dagger2_version = '2.16'
+    def room_version = '1.1.1'
     def loggingInterceptor = '3.8.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -64,13 +75,22 @@ dependencies {
     implementation 'org.glassfish:javax.annotation:10.0-b28'
     implementation 'com.google.android.material:material:1.0.0'
 
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
+    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
 
     implementation "com.squareup.okhttp3:logging-interceptor:${loggingInterceptor}"
+    implementation 'com.nexmo:client:5.2.0'
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 
 }

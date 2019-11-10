@@ -18,11 +18,7 @@ class FragmentPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm, BEHAV
     private val mFragmentTitleList = ArrayList<String>()
 
     override fun getItem(position: Int): Fragment {
-       return mFragmentList.get(position)/*when (position){
-           0-> return PaymentFragment()
-           1->  return ReleaseVehicleFragment()
-           else -> return OthersFragment()
-       }*/
+       return mFragmentList.get(position)
     }
 
     override fun getCount(): Int {

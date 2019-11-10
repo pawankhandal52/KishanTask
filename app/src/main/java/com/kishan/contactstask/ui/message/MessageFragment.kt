@@ -6,16 +6,17 @@
  *
  */
 
-package com.kishan.contactstask.message
+package com.kishan.contactstask.ui.message
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Observer
 
 import com.kishan.contactstask.R
+import com.kishan.contactstask.database.AppDatabase
+import com.kishan.contactstask.database.Message
 import com.kishan.contactstask.databinding.MessageFragmentBinding
 import com.kishan.contactstask.ui.base.BaseFragment
 
@@ -28,10 +29,14 @@ class MessageFragment : BaseFragment<MessageFragmentBinding>() {
 
     private lateinit var viewModel: MessageViewModel
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MessageViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProviders.of(this,MessageVMFactory(this,activity!!.applicationContext)).get(MessageViewModel::class.java)
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = this
+
+
     }
 
 }

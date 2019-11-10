@@ -26,6 +26,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_contact_list"
             android:layout_width="match_parent"
+            tools:listitem="@layout/item_message_list"
             android:layout_height="match_parent"
             app:adapter="@{viewmodel.contactListAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>

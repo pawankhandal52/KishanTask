@@ -12,15 +12,15 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-/**
- * Created by Pawan Kumar Sharma on 05-Nov-19.
- * Fleeca India Pvt Ltd
- * Android Developer
- * android_developer1@fleeca.in
- * +917737947610
- */
+
 class ContactsVMFactory(var context: Context): ViewModelProvider.NewInstanceFactory() {
-    override fun <ContactListViewModel : ViewModel?> create(modelClass: Class<ContactListViewModel>): ContactListViewModel {
-        return ContactListViewModel(context) as ContactListViewModel
+
+
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(ContactListViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return ContactListViewModel(context) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

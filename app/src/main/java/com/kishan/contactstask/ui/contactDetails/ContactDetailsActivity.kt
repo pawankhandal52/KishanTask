@@ -28,7 +28,6 @@ class ContactDetailsActivity : BaseActivity<ActivityContactDetailsBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setuptoolbar()
-        //get selected data
         if(intent.hasExtra(SELECTED_CONTACT)){
             val contact = intent.getParcelableExtra<Contact>(SELECTED_CONTACT)
             viewModel = ViewModelProviders.of(this).get(ContactDetailsViewModel::class.java)
@@ -60,6 +59,11 @@ class ContactDetailsActivity : BaseActivity<ActivityContactDetailsBinding>() {
         })
     }
 
+    /**
+     * Start Message screen
+     *
+     * @param contact
+     */
     private fun startMessageScreen(contact:Contact){
         val intent = Intent(this, SendMessageActivity::class.java)
         intent.putExtra(SELECTED_CONTACT,contact)

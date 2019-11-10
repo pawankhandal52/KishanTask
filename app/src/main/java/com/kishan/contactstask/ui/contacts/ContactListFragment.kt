@@ -49,6 +49,11 @@ class ContactListFragment : BaseFragment<ContactListFragmentBinding>() {
 
     }
 
+    /**
+     * Show Contact Details activity
+     *
+     * @param contact
+     */
     private fun showContactDetailsActivity(contact: Contact){
         val intent = Intent(activity,ContactDetailsActivity::class.java)
         intent.putExtra(SELECTED_CONTACT,contact)

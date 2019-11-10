@@ -8,12 +8,15 @@
 
 package com.kishan.contactstask.utils
 
-/**
- * Created by Pawan Kumar Sharma on 09-Nov-19.
- * Fleeca India Pvt Ltd
- * Android Developer
- * android_developer1@fleeca.in
- * +917737947610
- */
+import com.kishan.contactstask.ui.sendmessages.MessageResponse
+import io.reactivex.Observable
+import retrofit2.http.*
+
+
 interface ApiList {
+    @JvmSuppressWildcards
+    @FormUrlEncoded
+    @POST(BASE_URL+"json")
+    fun sendMessage(@QueryMap options:Map<String, String>,@FieldMap _objectMap: Map<String, Any?>
+    ): Observable<MessageResponse>
 }

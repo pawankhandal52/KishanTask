@@ -26,10 +26,8 @@ import java.util.concurrent.TimeUnit
 object NetworkModule {
     private var retrofit: Retrofit? = null
     private var apiList: ApiList? = null
-    private var mToken: String? = null
 
-    fun getApis(token: String): ApiList {
-        mToken = token
+    fun getApis(): ApiList {
         if (retrofit == null) {
             setUpClient()
         }
@@ -41,14 +39,12 @@ object NetworkModule {
         val interceptor = Interceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("Content-Type", "application/x-www-form-urlencoded").build()
-            //                        addHeader(ApiConstant.VERSION_KEY, ApiConstant.APP_VERSION).build();
             chain.proceed(request)
         }
 
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         if (BuildConfig.DEBUG) {
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-            //httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
         }
         val okHttpClient = OkHttpClient.Builder()
             .connectTimeout(60, TimeUnit.SECONDS)

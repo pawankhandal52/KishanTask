@@ -15,5 +15,5 @@ package com.kishan.contactstask.utils
  * android_developer1@fleeca.in
  * +917737947610
  */
-const val BASE_URL: String = "http://demo.fleeca.in/fleecatesting/api/"
+const val BASE_URL: String = "https://rest.nexmo.com/sms/"
 const val SELECTED_CONTACT = "selected_contact"

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.kishan.contactstask">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.sendmessages.SendMessageActivity"></activity>
+        <activity android:name=".ui.sendmessages.SendMessageActivity"/>
         <activity android:name=".ui.contactDetails.ContactDetailsActivity" />
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.splash.SplashActivity">

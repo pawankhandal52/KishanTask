@@ -21,7 +21,6 @@ import com.kishan.contactstask.ui.contacts.model.Contact
  */
 class ContactDetailsViewModel:BaseViewModel() {
 
-    //val sendMessageClicked = MutableLiveData<Boolean>()
     val contact = MutableLiveData<Contact>()
 
     fun sendMessage(contact:Contact){

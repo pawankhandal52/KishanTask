@@ -11,18 +11,16 @@ package com.kishan.contactstask.ui.contacts.model
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-/**
- * Created by Pawan Kumar Sharma on 09-Nov-19.
- * Fleeca India Pvt Ltd
- * Android Developer
- * android_developer1@fleeca.in
- * +917737947610
- */
 class ContactViewModel:ViewModel() {
     private val firstName = MutableLiveData<String>()
     private val lastName = MutableLiveData<String>()
     private val phoneNumber = MutableLiveData<String>()
 
+    /**
+     * this function is used to bind the data which shows using mutable text in layout
+     *
+     * @param contact
+     */
     fun bind(contact:Contact){
         firstName.value = contact.firstName
         lastName.value = contact.lastName

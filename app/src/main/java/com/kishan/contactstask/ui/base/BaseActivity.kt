@@ -21,8 +21,7 @@ import com.kishan.contactstask.utils.ProgressDialog
 abstract class BaseActivity<T: ViewDataBinding/*,V:BaseViewModel*/> : AppCompatActivity() {
 
     open lateinit var binding: T
-     lateinit var progressDialog: ProgressDialog
-    //open lateinit var viewModel: V
+    var progressDialog: ProgressDialog? = null
     private var errorSnackbar: Snackbar? = null
 
 
@@ -35,12 +34,20 @@ abstract class BaseActivity<T: ViewDataBinding/*,V:BaseViewModel*/> : AppCompatA
         progressDialog = ProgressDialog(this)
     }
 
-     fun showError( errorMessage:String,clickListener: View.OnClickListener){
+    /**
+     * Show Error on Activity using snack bar
+     *
+     * @param errorMessage
+     */
+     fun showError( errorMessage:String){
         errorSnackbar = Snackbar.make(binding.root, errorMessage, Snackbar.LENGTH_INDEFINITE)
-        errorSnackbar?.setAction("Retry", clickListener)
         errorSnackbar?.show()
     }
 
+    /**
+     * Hide error
+     *
+     */
      fun hideError(){
         errorSnackbar?.dismiss()
     }

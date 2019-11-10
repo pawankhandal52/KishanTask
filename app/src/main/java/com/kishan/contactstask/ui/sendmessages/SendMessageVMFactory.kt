@@ -14,7 +14,12 @@ import com.kishan.contactstask.ui.contacts.model.Contact
 
 
 class SendMessageVMFactory(var contact: Contact): ViewModelProvider.NewInstanceFactory() {
-    override fun <SendMessageViewModel : ViewModel?> create(modelClass: Class<SendMessageViewModel>): SendMessageViewModel {
-        return SendMessageViewModel(contact) as SendMessageViewModel
+
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(SendMessageViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return SendMessageViewModel(contact) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
